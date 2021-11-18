@@ -1,48 +1,73 @@
+import 'package:alpha/util/background_color_list.dart';
 import 'package:alpha/util/config.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {
-  ProfilePage({Key? key}) : super(key: key);
+  const ProfilePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-        length: 2,
-        child: Scaffold(
-          backgroundColor: black,
-          body: Padding(
-            padding: const EdgeInsets.only(top: 20),
-            child: ListView(
-              physics:
-                  const ScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
-              children: const [
-                ProfileDetels(),
-                TabBar(tabs: [
-                  Tab(
-                    text: 'Me',
-                  ),
-                  Tab(
-                    text: 'Liked',
-                  ),
-                ]),
-                SizedBox(
-                  height: 600,
-                  child: TabBarView(children: [
-                    Text(
-                      'dsad',
-                      style: r18w,
-                    ),
-                    Text(
-                      'dsad',
-                      style: r18w,
-                    ),
-                  ]),
-                )
-              ],
+    return Scaffold(
+      backgroundColor: black,
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(
+              height: 50,
             ),
-          ),
-        ));
+            const ProfileDetels(),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              child: Text(
+                'Moods',
+                style: r18w,
+              ),
+            ),
+            GridView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              itemCount: colors.length,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3),
+              itemBuilder: (BuildContext context, int index) {
+                return Card(
+                  color: colors[index],
+                  child: GridTile(
+                    footer: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Icon(
+                          Icons.linked_camera,
+                          color: white,
+                          size: 25,
+                        ),
+                        Text(
+                          index.toString(),
+                          style: b21w,
+                        ),
+                      ],
+                    ),
+                    child: const Center(
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: AutoSizeText(
+                          'Hello World Hello World Hello World Hello World',
+                          style: TextStyle(color: white),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ), //just for testing, will fill with image later
+                  ),
+                );
+              },
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
 

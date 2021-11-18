@@ -82,7 +82,7 @@ class LandingPage extends StatelessWidget {
                 icon: Container(
                   margin: const EdgeInsets.only(bottom: 7),
                   child: const Icon(
-                    Icons.settings,
+                    Icons.location_history,
                     size: 20.0,
                   ),
                 ),
@@ -107,9 +107,9 @@ class LandingPage extends StatelessWidget {
             children: [
               const HomePage(),
               const HomePage(),
-              const PostPage(),
+              PostPage(),
               const HomePage(),
-              ProfilePage(),
+              const ProfilePage(),
             ],
           )),
     ));
