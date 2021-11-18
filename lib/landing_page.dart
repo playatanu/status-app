@@ -1,9 +1,11 @@
+import 'package:alpha/views/profile/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'controller/landing_pagec_ontroller.dart';
 import 'views/home/home_page.dart';
+import 'views/post/post_page.dart';
 
 class LandingPage extends StatelessWidget {
   final TextStyle unselectedLabelStyle = TextStyle(
@@ -80,7 +82,7 @@ class LandingPage extends StatelessWidget {
                 icon: Container(
                   margin: const EdgeInsets.only(bottom: 7),
                   child: const Icon(
-                    Icons.settings,
+                    Icons.location_history,
                     size: 20.0,
                   ),
                 ),
@@ -102,11 +104,12 @@ class LandingPage extends StatelessWidget {
           buildBottomNavigationMenu(context, landingPageController),
       body: Obx(() => IndexedStack(
             index: landingPageController.tabIndex.value,
-            children: const [
-              HomePage(),
-              HomePage(),
-              HomePage(),
-              HomePage(),
+            children: [
+              const HomePage(),
+              const HomePage(),
+              PostPage(),
+              const HomePage(),
+              const ProfilePage(),
             ],
           )),
     ));
