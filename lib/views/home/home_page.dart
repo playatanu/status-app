@@ -1,4 +1,5 @@
 import 'package:alpha/util/config.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:tiktoklikescroller/tiktoklikescroller.dart';
 
@@ -26,6 +27,9 @@ class HomePage extends StatelessWidget {
       'Choto Debnath',
       'Rahul Das'
     ];
+
+    const String demotext = 'Hello Wolrd 😀';
+
     return Scaffold(
       body: Stack(children: [
         TikTokStyleFullPageScroller(
@@ -44,7 +48,13 @@ class HomePage extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: Stack(children: [
-                    const Center(child: Text('colors')),
+                    const Center(
+                        child: AutoSizeText(
+                      demotext,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 40, color: white),
+                      maxLines: 20,
+                    )),
                     const Sidemenu(),
                     UserNameCard(names: names, index: index),
                   ]),
