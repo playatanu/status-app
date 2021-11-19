@@ -1,14 +1,16 @@
-import 'package:alpha/util/config.dart';
+import 'package:mood/util/config.dart';
 import 'package:flutter/material.dart';
 
 class UserNameCard extends StatelessWidget {
   const UserNameCard({
     Key? key,
-    required this.names,
+    required this.uid,
     required this.index,
+    required this.username,
   }) : super(key: key);
 
-  final List<String> names;
+  final int uid;
+  final String username;
   final int index;
 
   @override
@@ -27,7 +29,7 @@ class UserNameCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(names[index], style: r18w),
+            Text('@$username', style: r18w),
             const Text('Nabadwip'),
           ],
         ),

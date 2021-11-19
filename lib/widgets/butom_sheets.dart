@@ -1,7 +1,7 @@
-import 'package:alpha/util/config.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/get_core.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:mood/util/config.dart';
 
 void newbottomSheet() {
   Get.bottomSheet(Container(

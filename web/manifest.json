@@ -1,6 +1,6 @@
 {
-    "name": "alpha",
-    "short_name": "alpha",
+    "name": "mood",
+    "short_name": "mood",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
