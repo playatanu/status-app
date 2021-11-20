@@ -17,3 +17,6 @@ const TextStyle r18w =
 
 const TextStyle r13w =
     TextStyle(fontSize: 13, fontWeight: FontWeight.w400, color: Colors.white);
+
+const TextStyle r15w =
+    TextStyle(fontSize: 15, fontWeight: FontWeight.w400, color: Colors.white);
