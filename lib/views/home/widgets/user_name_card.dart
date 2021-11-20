@@ -7,10 +7,12 @@ class UserNameCard extends StatelessWidget {
     required this.uid,
     required this.index,
     required this.username,
+    required this.nametag,
   }) : super(key: key);
 
   final int uid;
   final String username;
+  final String nametag;
   final int index;
 
   @override
@@ -29,8 +31,8 @@ class UserNameCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('@$username', style: r18w),
-            const Text('Nabadwip'),
+            Text(nametag, style: r18w),
+            Text('@$username', style: r13w),
           ],
         ),
       ],
