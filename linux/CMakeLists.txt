@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.10)
 project(runner LANGUAGES CXX)
 
-set(BINARY_NAME "alpha")
-set(APPLICATION_ID "com.example.alpha")
+set(BINARY_NAME "mood")
+set(APPLICATION_ID "com.playatanu.mood")
 
 cmake_policy(SET CMP0063 NEW)
 

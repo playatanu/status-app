@@ -1,8 +1,9 @@
-import 'package:alpha/util/background_color_list.dart';
-import 'package:alpha/util/config.dart';
+import 'package:mood/util/background_color_list.dart';
+import 'package:mood/util/config.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mood/views/profile/controller/profile_controller.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -71,6 +72,8 @@ class ProfilePage extends StatelessWidget {
   }
 }
 
+ProfileController profileController = ProfileController();
+
 class ProfileDetels extends StatelessWidget {
   const ProfileDetels({
     Key? key,
@@ -92,6 +95,10 @@ class ProfileDetels extends StatelessWidget {
         const Text(
           'Atanu Debnath',
           style: b21w,
+        ),
+        Text(
+          '@${profileController.username.value}',
+          style: r13w,
         ),
         const Padding(
           padding: EdgeInsets.symmetric(horizontal: 40),

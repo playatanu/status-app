@@ -1,38 +1,97 @@
-import 'package:alpha/views/profile/profile_page.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_instance/src/extension_instance.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
-import 'controller/landing_pagec_ontroller.dart';
 import 'views/home/home_page.dart';
 import 'views/post/post_page.dart';
+import 'views/profile/profile_page.dart';
 
-class LandingPage extends StatelessWidget {
-  final TextStyle unselectedLabelStyle = TextStyle(
-      color: Colors.white.withOpacity(0.5),
-      fontWeight: FontWeight.w500,
-      fontSize: 12);
+// class MyNavigationBar extends StatefulWidget {
+//   const MyNavigationBar({Key? key}) : super(key: key);
 
-  final TextStyle selectedLabelStyle = const TextStyle(
-      color: Colors.white, fontWeight: FontWeight.w500, fontSize: 12);
+//   @override
+//   _MyNavigationBarState createState() => _MyNavigationBarState();
+// }
 
-  LandingPage({Key? key}) : super(key: key);
+// class _MyNavigationBarState extends State<MyNavigationBar> {
+//   int _selectedIndex = 0;
+//   static List<Widget> _widgetOptions = <Widget>[
+//     HomePage(),
+//     HomePage(),
+//     PostPage(),
+//     HomePage(),
+//     ProfilePage(),
+//   ];
 
-  buildBottomNavigationMenu(context, landingPageController) {
-    return Obx(() => MediaQuery(
-        data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
-        child: SizedBox(
-          height: 54,
-          child: BottomNavigationBar(
+//   final TextStyle unselectedLabelStyle = TextStyle(
+//       color: Colors.white.withOpacity(0.5),
+//       fontWeight: FontWeight.w500,
+//       fontSize: 12);
+
+//   final TextStyle selectedLabelStyle = const TextStyle(
+//       color: Colors.white, fontWeight: FontWeight.w500, fontSize: 12);
+
+//   void _onItemTapped(int index) {
+//     setState(() {
+//       _selectedIndex = index;
+//     });
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: Center(
+//         child: _widgetOptions.elementAt(_selectedIndex),
+//       ),
+//       bottomNavigationBar: BottomNavigationBar(
+//         // showUnselectedLabels: true,
+//         // showSelectedLabels: true,
+//         // backgroundColor: Colors.black,
+//         // unselectedItemColor: Colors.white.withOpacity(0.8),
+//         // selectedItemColor: Colors.red,
+//         // unselectedLabelStyle: unselectedLabelStyle,
+//         // selectedLabelStyle: selectedLabelStyle,
+//         items: [
+//
+//         ],
+//       ),
+//     );
+//   }
+// }
+
+class MyNavigationBar extends StatefulWidget {
+  MyNavigationBar({Key? key}) : super(key: key);
+
+  @override
+  _MyNavigationBarState createState() => _MyNavigationBarState();
+}
+
+class _MyNavigationBarState extends State<MyNavigationBar> {
+  int _selectedIndex = 0;
+  static const List<Widget> _widgetOptions = <Widget>[
+    HomePage(),
+    Text('Search'),
+    InitPost(),
+    Text('New'),
+    ProfilePage()
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+        body: Center(
+          child: _widgetOptions.elementAt(_selectedIndex),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
             showUnselectedLabels: true,
             showSelectedLabels: true,
-            onTap: landingPageController.changeTabIndex,
-            currentIndex: landingPageController.tabIndex.value,
             backgroundColor: Colors.black,
             unselectedItemColor: Colors.white.withOpacity(0.8),
             selectedItemColor: Colors.red,
-            unselectedLabelStyle: unselectedLabelStyle,
-            selectedLabelStyle: selectedLabelStyle,
             items: [
               BottomNavigationBarItem(
                 icon: Container(
@@ -64,7 +123,7 @@ class LandingPage extends StatelessWidget {
                     size: 20.0,
                   ),
                 ),
-                label: 'Post',
+                label: 'Add',
                 backgroundColor: Colors.black,
               ),
               BottomNavigationBarItem(
@@ -90,28 +149,12 @@ class LandingPage extends StatelessWidget {
                 backgroundColor: Colors.black,
               ),
             ],
-          ),
-        )));
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final LandingPageController landingPageController =
-        Get.put(LandingPageController(), permanent: false);
-    return SafeArea(
-        child: Scaffold(
-      bottomNavigationBar:
-          buildBottomNavigationMenu(context, landingPageController),
-      body: Obx(() => IndexedStack(
-            index: landingPageController.tabIndex.value,
-            children: [
-              const HomePage(),
-              const HomePage(),
-              PostPage(),
-              const HomePage(),
-              const ProfilePage(),
-            ],
-          )),
-    ));
+            type: BottomNavigationBarType.shifting,
+            currentIndex: _selectedIndex,
+            iconSize: 20,
+            onTap: _onItemTapped,
+            elevation: 5),
+      ),
+    );
   }
 }

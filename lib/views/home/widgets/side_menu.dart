@@ -1,11 +1,14 @@
-import 'package:alpha/util/config.dart';
-import 'package:alpha/widgets/butom_sheets.dart';
+import 'package:mood/util/config.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class Sidemenu extends StatelessWidget {
   const Sidemenu({
     Key? key,
+    required this.likecount,
   }) : super(key: key);
+
+  final int likecount;
 
   @override
   Widget build(BuildContext context) {
@@ -19,17 +22,14 @@ class Sidemenu extends StatelessWidget {
             Column(
               children: [
                 IconButton(
-                    onPressed: () {
-                      // ignore: avoid_print
-                      newbottomSheet();
-                    },
+                    onPressed: () {},
                     icon: const Icon(
                       Icons.control_point_duplicate_sharp,
                       color: white,
                       size: 30,
                     )),
-                const Text(
-                  '1.5k',
+                Text(
+                  likecount.toString(),
                   style: r13w,
                 ),
               ],
