@@ -55,6 +55,7 @@ class HomePage extends StatelessWidget {
                         Sidemenu(
                             likecount: snapshot.data!.docs[index]['likecount']),
                         UserNameCard(
+                          nametag: snapshot.data!.docs[index]['nametag'],
                           uid: snapshot.data!.docs[index]['uid'],
                           index: index,
                           username: snapshot.data!.docs[index]['username'],
