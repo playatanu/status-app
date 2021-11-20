@@ -17,8 +17,6 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(),
-        home: MyNavigationBar(
-          newindex: 0,
-        ));
+        home: MyNavigationBar());
   }
 }
