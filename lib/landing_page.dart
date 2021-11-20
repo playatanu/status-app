@@ -57,27 +57,25 @@ import 'views/profile/profile_page.dart';
 // }
 
 class MyNavigationBar extends StatefulWidget {
-  MyNavigationBar({Key? key, required this.newindex}) : super(key: key);
-
-  late int newindex;
+  MyNavigationBar({Key? key}) : super(key: key);
 
   @override
   _MyNavigationBarState createState() => _MyNavigationBarState();
 }
 
 class _MyNavigationBarState extends State<MyNavigationBar> {
-  // int _selectedIndex = newindex;
+  int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
     HomePage(),
     Text('Search'),
-    PostPageInit(),
+    InitPost(),
     Text('New'),
     ProfilePage()
   ];
 
   void _onItemTapped(int index) {
     setState(() {
-      widget.newindex = index;
+      _selectedIndex = index;
     });
   }
 
@@ -86,7 +84,7 @@ class _MyNavigationBarState extends State<MyNavigationBar> {
     return SafeArea(
       child: Scaffold(
         body: Center(
-          child: _widgetOptions.elementAt(widget.newindex),
+          child: _widgetOptions.elementAt(_selectedIndex),
         ),
         bottomNavigationBar: BottomNavigationBar(
             showUnselectedLabels: true,
@@ -152,7 +150,7 @@ class _MyNavigationBarState extends State<MyNavigationBar> {
               ),
             ],
             type: BottomNavigationBarType.shifting,
-            currentIndex: widget.newindex,
+            currentIndex: _selectedIndex,
             iconSize: 20,
             onTap: _onItemTapped,
             elevation: 5),
