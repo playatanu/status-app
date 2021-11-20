@@ -1,6 +1,7 @@
 // ignore_for_file: duplicate_ignore, avoid_print
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:get/state_manager.dart';
 import 'package:mood/views/profile/controller/profile_controller.dart';
 
@@ -37,10 +38,10 @@ class PostController extends GetxController {
             ))
           }
         : {
-            Scaffold.of(context).showSnackBar(const SnackBar(
-              dismissDirection: DismissDirection.up,
-              content: Text("Sending Your Moods... "),
-            )),
+            // Scaffold.of(context).showSnackBar(const SnackBar(
+            //   dismissDirection: DismissDirection.up,
+            //   content: Text("Sending Your Moods... "),
+            // )),
             posts.add({
               'username': profileController.username.value,
               'posttext': textEditingController.text, // John Doe
@@ -48,13 +49,15 @@ class PostController extends GetxController {
               'styleindex': textstyle.value,
               'likecount': 0,
               'uid': 1234,
+              'nametag': 'PLAYATANU',
             }).then((value) {
+              Get.back();
               print("Post Send Sescess Full");
               // ignore: deprecated_member_use
-              Scaffold.of(context).showSnackBar(const SnackBar(
-                dismissDirection: DismissDirection.up,
-                content: Text("Your Moods successfully posted 😋"),
-              ));
+              // Scaffold.of(context).showSnackBar(const SnackBar(
+              //   dismissDirection: DismissDirection.up,
+              //   content: Text("Your Moods successfully posted 😋"),
+              // ));
               textEditingController.clear();
               background_color.value = 0;
               // ignore: invalid_return_type_for_catch_error
