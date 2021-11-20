@@ -36,6 +36,7 @@ class PostDoneButton extends StatelessWidget {
             TextButton(
               onPressed: () {
                 postcontoller.post(context);
+
                 print('done clicked');
               },
               child: const Text(
