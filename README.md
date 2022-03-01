@@ -1,16 +1,31 @@
-# mood
+# **Status App**
 
-A new Flutter project.
+![App Screenshot](https://github.com/playatanu/assets/blob/main/status-app.gif?raw=true)
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## Tech Stack
 
-A few resources to get you started if this is your first Flutter project:
+**Forntend:** Flutter
+**Backend:** Firebase
+ 
+ 
+## Feedback
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+If you have any feedback, please reach out to us at playatanu@gmail.com
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+  
+![Logo](https://github.com/playatanu/playatanu/raw/main/playatanu.png?raw=true)
+
+    
+# Hi, I'm Atanu Debnath! 👋
+
+  
+
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://playatanu.github.io/)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/playatanu)
+
+
+  
+## Support
+
+For support, email playatanu@gmail.com or join our Slack channel.
